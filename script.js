@@ -4,6 +4,8 @@ const player0El = document.querySelector('.player--0');
 const player1El = document.querySelector('.player--1');
 const score0El = document.getElementById('score--0');
 const score1El = document.getElementById('score--1');
+const name0El = document.getElementById('name--0');
+const name1El = document.getElementById('name--1');
 
 const diceEl = document.querySelector('.dice');
 const rollEl = document.querySelector('.btn--roll');
@@ -13,6 +15,9 @@ const newEl = document.querySelector('.btn--new');
 let currentScore, scores, activePlayer, playing;
 
 function init() {
+  name0El.textContent = prompt(`Name Player 1 : `);
+  name1El.textContent = prompt(`Name Player 2 : `);
+
   score0El.textContent = 0;
   score1El.textContent = 0;
 
@@ -32,7 +37,7 @@ function init() {
 init();
 
 function checkWin() {
-  if (scores[activePlayer] >= 20) {
+  if (scores[activePlayer] >= 100) {
     document
       .querySelector(`.player--${activePlayer}`)
       .classList.add('player--winner');
